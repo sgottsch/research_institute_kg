@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="title">Welcome to the {{ kg_name }}!</h1>
+
+<div class="content">
+
+  <p>TODO: Add text.</p>
+
+  You can access the main features:
+  <ul>
+    <li><a href="{% url 'sparql' %}">SPARQL Endpoint</a> which helps you retrieve data from the {{ kg_name }}</li>
+    <li><a href="{% url 'kgview' %}">Graph View</a> of the complete {{ kg_name }}</li>
+    <li><a href="{% url 'resource' example_resource_id %}">Example resource</a></li>
+  </ul>
+
+</div>
+{% endblock %}

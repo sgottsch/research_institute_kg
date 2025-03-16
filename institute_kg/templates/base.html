@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+</head>
+<body>
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img src="{% static 'images/institute_logo.png' %}" height="28">&nbsp;&nbsp;{{ kg_name }} - The {{ institute_name }} Knowledge
+      Graph
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item {% if request.resolver_match.url_name == 'sparql' %}is-active{% endif %}"
+         href="{% url 'sparql' %}">SPARQL Endpoint</a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Graph View
+        </a>
+
+        <div class="navbar-dropdown ">
+          <a class="navbar-item {% if request.resolver_match.url_name == 'kgview' %}is-active{% endif %}"
+             href="{% url 'kgview' %}">Everything</a>
+          <hr class="navbar-divider">
+          <a class="navbar-item {% if request.resolver_match.url_name == 'kgpeopleview' %}is-active{% endif %}"
+             href="{% url 'kgpeopleview' %}">Co-Authors</a>
+          <a class="navbar-item {% if request.resolver_match.url_name == 'kgworkplaceview' %}is-active{% endif %}"
+             href="{% url 'kgworkplaceview' %}">Workplaces</a>
+          <a class="navbar-item {% if request.resolver_match.url_name == 'kglocationview' %}is-active{% endif %}"
+             href="{% url 'kglocationview' %}">Locations</a>
+          <a class="navbar-item {% if request.resolver_match.url_name == 'kglanguageview' %}is-active{% endif %}"
+             href="{% url 'kglanguageview' %}">Languages</a>
+          <a class="navbar-item {% if request.resolver_match.url_name == 'kgresearchfieldview' %}is-active{% endif %}"
+             href="{% url 'kgresearchfieldview' %}">Research Fields</a>
+          <a class="navbar-item {% if request.resolver_match.url_name == 'kgpaperview' %}is-active{% endif %}"
+             href="{% url 'kgpaperview' %}">Papers</a>
+          <a class="navbar-item {% if request.resolver_match.url_name == 'kgconferenceauthorview' %}is-active{% endif %}"
+             href="{% url 'kgconferenceauthorview' %}">Conferences</a>
+          <a class="navbar-item {% if request.resolver_match.url_name == 'kgjournalauthorview' %}is-active{% endif %}"
+             href="{% url 'kgjournalauthorview' %}">Journals</a>
+        </div>
+      </div>
+
+
+      <a class="navbar-item {% if request.resolver_match.url_name == 'search' %}is-active{% endif %}"
+         href="{% url 'search' %}">Search</a>
+      <a class="navbar-item {% if request.resolver_match.url_name == 'about' %}is-active{% endif %}"
+         href="{% url 'about' %}">About</a>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <form action="{% url 'search' %}" method="post">
+          {% csrf_token %}
+          <div class="field">
+            <div class="control">
+              <input type="text" name="query" class="input" placeholder="Search…" required="" id="id_query">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+<section class="section">
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+</section>
+</body>
+<script>
+  $(document).ready(function () {
+
+    // Check for click events on the navbar burger icon
+    $(".navbar-burger").click(function () {
+
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      $(".navbar-burger").toggleClass("is-active");
+      $(".navbar-menu").toggleClass("is-active");
+
+    });
+  });
+</script>
+</html>

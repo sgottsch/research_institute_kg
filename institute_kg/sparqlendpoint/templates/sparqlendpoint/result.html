@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load uri %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/sparql_result.css' %}">
+
+
+<section>
+
+  <h1 class="title">SPARQL Query Results</h1>
+
+  <table class="sparql-result table">
+    <thead>
+    <tr>
+      {% for var in vars %}
+      <th>{{var}}</th>
+      {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in results %}
+    <tr>
+      {% for res in row %}
+      <td>
+        {% if res|slice:":4" == "http" %}
+        <a href="{{ res | uri_reverse }}">{{res}}</a>
+        {% else %}
+        {{res}}
+        {% endif %}
+      </td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+</section>
+<hr style="margin-top: 25px;">
+<section>
+  <h3>Query</h3>
+  <div style="font-size: 80%; line-height:1.1;">
+    {{ query |safe }}
+  </div>
+</section>
+
+
+{% endblock %}

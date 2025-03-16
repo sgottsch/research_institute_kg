@@ -1,0 +1,173 @@
+@prefix l3skg: <https://l3skg.l3s.uni-hannover.de/resource/> .
+@prefix l3skgo: <https://l3skg.l3s.uni-hannover.de/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rdf:type a rdf:Property ;
+    rdfs:label "type" .
+
+rdfs:label a rdf:Property ;
+    rdfs:label "label" .
+
+rdfs:subClassOf a rdf:Property ;
+    rdfs:label "sub class of" .
+
+owl:sameAs a rdf:Property ;
+    rdfs:label "sameAs" .
+
+l3skgo:PhDStudent a owl:Class ;
+    rdfs:label "Phd student" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:ResearchField a owl:Class ;
+    rdfs:label "Research Field" .
+
+l3skgo:ResearchGroupLeader a owl:Class ;
+    rdfs:label "Research group leader" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:coAuthor a rdf:Property ;
+    rdfs:label "co author" .
+
+l3skgo:interest a rdf:Property ;
+    rdfs:label "interest" .
+
+l3skgo:startingDate a rdf:Property ;
+    rdfs:label "L3S start date" .
+
+schema:author a rdf:Property ;
+    rdfs:label "author" .
+
+schema:birthDate a rdf:Property ;
+    rdfs:label "birthDate" .
+
+schema:citation a rdf:Property ;
+    rdfs:label "citation" .
+
+schema:email a rdf:Property ;
+    rdfs:label "email" .
+
+schema:image a rdf:Property ;
+    rdfs:label "image" .
+
+schema:isPartOf a rdf:Property ;
+    rdfs:label "isPartOf" .
+
+schema:knowsLanguage a rdf:Property ;
+    rdfs:label "knowsLanguage" .
+
+schema:location a rdf:Property ;
+    rdfs:label "location" .
+
+schema:subjectOf a rdf:Property ;
+    rdfs:label "subjectOf" .
+
+schema:telephone a rdf:Property ;
+    rdfs:label "telephone" .
+
+schema:workLocation a rdf:Property ;
+    rdfs:label "workLocation" .
+
+l3skgo:L3SAssociate a owl:Class ;
+    rdfs:label "L3S Associate" .
+
+schema:City a owl:Class ;
+    rdfs:label "City" .
+
+schema:Event a owl:Class ;
+    rdfs:label "Event" .
+
+schema:House a owl:Class ;
+    rdfs:label "House" .
+
+schema:Language a owl:Class ;
+    rdfs:label "Language" .
+
+schema:Periodical a owl:Class ;
+    rdfs:label "Periodical" .
+
+schema:ScholarlyArticle a owl:Class ;
+    rdfs:label "ScholarlyArticle" .
+
+l3skg:Paper0 a schema:ScholarlyArticle ;
+    rdfs:label "Research Institute Knowledge Graph for Internal Organisation and Collaboration"^^xsd:string ;
+    schema:author l3skg:SimonGottschalk, l3skg:EleniIlkou, l3skg:SergejWildemann ;
+    schema:citation "Proceedings of the Extended Semantic Web Conference"^^xsd:string ;
+    schema:subjectOf l3skg:Conference_Eswc .
+
+l3skg:SimonGottschalk a l3skgo:ResearchGroupLeader,
+        schema:Person ;
+    rdfs:label "Simon Gottschalk" ;
+    l3skgo:coAuthor l3skg:EleniIlkou, l3skg:SergejWildemann ;
+    l3skgo:interest l3skg:Knowledge_Graphs,
+        l3skg:Mobility ;
+    schema:email "gottschalk@l3s.de" ;
+    schema:image "https://www.l3s.de/wp-content/uploads/2022/08/foto_simon_gottschalk_kleiner.jpg"^^xsd:anyURI ;
+    schema:telephone "+49 511 762-17739" ;
+    schema:workLocation l3skg:Appelstr_9A ;
+    schema:knowsLanguage l3skg:English,
+        l3skg:German ;
+    schema:location l3skg:City0 .
+
+l3skg:EleniIlkou a schema:Person, l3skgo:PhDStudent ;
+    rdfs:label "Eleni Ilkou" ;
+    l3skgo:coAuthor l3skg:SimonGottschalk,
+        l3skg:SergejWildemann ;
+    l3skgo:interest l3skg:Educational_Technology,
+        l3skg:Knowledge_Graphs ;
+    schema:email "ilkou@l3s.de " ;
+    schema:knowsLanguage l3skg:English,
+        l3skg:German,
+        l3skg:Greek ;
+    schema:location l3skg:City0 .
+
+l3skg:SergejWildemann a schema:Person, l3skgo:PhDStudent ;
+    rdfs:label "Sergej Wildemann" ;
+    l3skgo:coAuthor l3skg:SimonGottschalk,
+        l3skg:EleniIlkou ;
+    l3skgo:interest l3skg:Knowledge_Graphs ;
+    schema:email "wildemann@l3s.de " ;
+    schema:knowsLanguage l3skg:English,
+        l3skg:German,
+        l3skg:Russian ;
+    schema:image "https://www.l3s.de/wp-content/uploads/2022/08/Wildemann-Sergej.jpg"^^xsd:anyURI ;
+    schema:location l3skg:City0 ;
+    schema:workLocation l3skg:Appelstr_9A .
+
+l3skg:Appelstr_9A a schema:House ;
+    rdfs:label "Appelstr 9A" .
+
+l3skg:City0 a schema:City ;
+    rdfs:label "Hannover" .
+
+l3skg:Conference_Eswc a schema:Event ;
+    rdfs:label "ESWC"^^xsd:string ;
+    schema:author l3skg:SimonGottschalk,
+        l3skg:SergejWildemann,
+        l3skg:EleniIlkou .
+
+l3skg:Knowledge_Graphs a l3skgo:ResearchField ;
+    rdfs:label "Knowledge Graphs" .
+
+l3skg:Mobility a l3skgo:ResearchField ;
+    rdfs:label "Mobility" .
+
+l3skg:Educational_Technology a l3skgo:ResearchField ;
+    rdfs:label "Educational Technology" .
+
+l3skg:Greek a schema:Language ;
+    rdfs:label "Greek"^^xsd:string .
+
+l3skg:German a schema:Language ;
+    rdfs:label "German"^^xsd:string .
+
+l3skg:Russian a schema:Language ;
+    rdfs:label "Russian"^^xsd:string .
+
+l3skg:English a schema:Language ;
+    rdfs:label "English"^^xsd:string .
+

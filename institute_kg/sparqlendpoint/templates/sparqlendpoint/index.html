@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/codemirror.css' %}">
+
+<script src="{% static 'js/codemirror.js' %}"></script>
+<script src="{% static 'js/matchbrackets.js' %}"></script>
+<script src="{% static 'js/sparql.js' %}"></script>
+
+    <script type="text/javascript">
+
+	function showAndHidePrefixes() {
+		var x = document.getElementById("prefixes");
+		if (x.style.display === "none") {
+			x.style.display = "block";
+			event.srcElement.textContent="Hide prefixes";
+		} else {
+			x.style.display = "none";
+			event.srcElement.textContent="Show prefixes";
+		}
+	}
+    </script>
+
+<h1 class="title">SPARQL Endpoint</h1>
+
+	<form method="get" action="">
+	<fieldset>
+		<label for="query"><h3>Query</h3></label>
+		<textarea rows="18" cols="80" name="query" id="query" onchange="format_select(this)" onkeyup="format_select(this)" style="margin-bottom: 5px; padding: 3px;" spellcheck="false">
+{{example_query}}</textarea><br>
+
+<script>
+	var editor = CodeMirror.fromTextArea(document.getElementById("query"), {
+	    lineNumbers: true,
+		mode: "application/sparql-query",
+		matchBrackets: true,
+
+	});
+
+	function insertExampleQuery(query) {
+		editor.getDoc().setValue(query.replaceAll("@NL@","\n").replaceAll("@QUO@",'"'));
+	}
+	</script>
+
+		<select name="format" id="format" style="margin-bottom: 5px;" class="button">
+			<option value="html" selected="selected">HTML</option>
+			<option value="json">JSON</option>
+			<option value="xml">XML</option>
+			<option value="text/csv">CSV</option>
+			<option value="text/tab-separated-values">TSV</option>
+		</select>&nbsp;
+		<input type="submit" value="Run Query" class="button">&nbsp;&nbsp;
+		</fieldset>
+	</form>
+
+	<h4>Example Queries</h4>
+<ul>
+		{% for query in example_queries %}
+	<li><a href="#" onclick="insertExampleQuery('{{query.query_str}}');return false;">{{query.description}}</a></li>
+
+	{% endfor %}
+</ul>
+
+   <br>
+    <span onclick="showAndHidePrefixes()" class="button" style="cursor:pointer;">Show prefixes</span>
+    <div id="prefixes" style="display: none; margin-bottom: 10px;">
+    <h3 style="margin-top: 10px;">Prefixes</h3>
+    <ul class="prefixes-list">
+
+		{% for prefix in prefixes %}
+    <li>
+        <ul>{{prefix.ns}}: {{prefix.prefix}}</ul>
+    </li>
+{% endfor %}
+    	    </ul>
+    </div>
+
+</div>
+
+{% endblock %}

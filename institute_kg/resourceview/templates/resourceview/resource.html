@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load uri %}
+
+{% block content %}
+  <div class="columns">
+    <div class="column">
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            {% if image %}
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img src="{{ image }}"/>
+                </figure>
+              </div>
+            {% endif %}
+            <div class="media-content">
+              <p class="title is-4"><a href="{{ resource.uri | uri_reverse }}">{{ resource.pref_label }}</a></p>
+            </div>
+          </div>
+
+          <div class="content">
+            <table class="table is-hoverable">
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+              </tr>
+              {% for triple in resource.triples %}
+                <tr>
+                  <td><a href="{{ triple.rdf_property.uri | uri_reverse }}">{{ triple.rdf_property.pref_label }}</a>
+                  </td>
+                  {% if triple.value.datatype == triple.value.datatype.URI %}
+                    <td><a href="{{ triple.value.value.uri | uri_reverse }}">{{ triple.value.value }}</a></td>
+                  {% elif triple.value.datatype == triple.value.datatype.IMAGE %}
+                    <td><img src="{{ triple.value.value }}" class="rdf_image"></td>
+                  {% else %}
+                    <td>{{ triple.value.value }}</td>
+                  {% endif %}
+                </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% if resource.object_triples %}
+      <div class="column">
+        <div class="card column">
+          <div class="card-content">
+            <div class="content">
+              <p class="title is-4">Triples where {{ resource.pref_label }} is the object:</p>
+              <table class="table is-hoverable">
+                <tr>
+                  <th>Subject</th>
+                  <th>Property</th>
+                </tr>
+                {% for triple in resource.object_triples %}
+                  <tr>
+                    <td><a href="{{ triple.value.value.uri | uri_reverse }}">{{ triple.value.value }}</a></td>
+                    <td><a href="{{ triple.rdf_property.uri }}">{{ triple.rdf_property.pref_label }}</a></td>
+                  </tr>
+                {% endfor %}
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

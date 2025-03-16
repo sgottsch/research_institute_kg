@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h1 class="title">Search</h1>
+
+  <div class="card">
+    <header class="card-header p-5">
+      <form action="" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="field has-addons">
+
+            <div class="control">
+              {{ field }}
+            </div>
+            <div class="control">
+              <button class="button is-info">
+                Search
+              </button>
+            </div>
+          </div>
+        {% endfor %}
+
+      </form>
+    </header>
+    {% if results %}
+      <div class="card-content">
+        <div class="content">
+          <p class="subtitle">{{ results | length }} Results</p>
+          <table class="table is-hoverable">
+            <thead>
+            <tr>
+              <th>Label</th>
+              <th>Type</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for r in results %}
+              <tr>
+                <td><a href="{{ r.uri }}">{{ r.label }}</a></td>
+                <td>
+                  {% for type in r.types %}
+                    <a href="{{ type.1 }}" class="tag is-medium">{{ type.0 }}</a>
+                  {% endfor %}
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+{% endblock %}

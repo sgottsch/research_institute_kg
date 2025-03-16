@@ -1,0 +1,36 @@
+section {
+	padding: 6px 8px 8px 8px;
+}
+
+hr {
+	color: #000080;
+	border-top: 1px solid #1974D2;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table.sparql-result  {
+	font-size: 15px;
+	table-layout: fixed;
+	line-height: 1.2;
+}
+
+table.sparql-result td {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+table.sparql-result th {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+td, th {
+		padding: 4px;
+}
+
+table.numeric-with-title tr td:not(:first-child) {
+	text-align:right;
+}

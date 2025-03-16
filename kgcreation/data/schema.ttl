@@ -1,0 +1,191 @@
+@prefix l3skgo: <https://l3skg.l3s.uni-hannover.de/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+
+rdf:type a rdf:Property ;
+    rdfs:label "type" .
+
+rdfs:label a rdf:Property ;
+    rdfs:label "label" .
+
+rdfs:subClassOf a rdf:Property ;
+    rdfs:label "sub class of" .
+
+owl:sameAs a rdf:Property ;
+    rdfs:label "sameAs" .
+
+l3skgo:Administration a owl:Class ;
+    rdfs:label "Administration" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:ChiefStrategyOfficer a owl:Class ;
+    rdfs:label "Chief strategy officer" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+<https://l3skg.l3s.uni-hannover.de/ontology/Communications&Strategy> a owl:Class ;
+    rdfs:label "Communications & strategy" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:DeputyManagingDirector a owl:Class ;
+    rdfs:label "Deputy managing director" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:Director a owl:Class ;
+    rdfs:label "Director" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:Doctorand a owl:Class ;
+    rdfs:label "Doctorand" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:ExecutiveDirector a owl:Class ;
+    rdfs:label "Executive director" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:GroupLeader a owl:Class ;
+    rdfs:label "Group leader" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:GuestProfessor a owl:Class ;
+    rdfs:label "Guest professor" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:HeadOfIt a owl:Class ;
+    rdfs:label "Head of it" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:ItSpecialist a owl:Class ;
+    rdfs:label "It specialist" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:ManagingDirector a owl:Class ;
+    rdfs:label "Managing director" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+<https://l3skg.l3s.uni-hannover.de/ontology/Master’SStudent> a owl:Class ;
+    rdfs:label "Master’s student" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:MemberOfExtendedBoardOfDirectors a owl:Class ;
+    rdfs:label "Member of extended board of directors" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:PhdStudent a owl:Class ;
+    rdfs:label "Phd student" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+<https://l3skg.l3s.uni-hannover.de/ontology/QuantumLearning&Algorithm> a owl:Class ;
+    rdfs:label "Quantum learning & algorithm" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:ResearchAssistant a owl:Class ;
+    rdfs:label "Research assistant" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:ResearchField a owl:Class ;
+    rdfs:label "Research Field" .
+
+l3skgo:ResearchGroupLeader a owl:Class ;
+    rdfs:label "Research group leader" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:Researcher a owl:Class ;
+    rdfs:label "Researcher" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:ScholarshipHolder a owl:Class ;
+    rdfs:label "Scholarship holder" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:SeniorResearcher a owl:Class ;
+    rdfs:label "Senior researcher" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:SoftwareDeveloper a owl:Class ;
+    rdfs:label "Software developer" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:StartupConsulting a owl:Class ;
+    rdfs:label "Startup consulting" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:Stipendiat a owl:Class ;
+    rdfs:label "Stipendiat" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:StudentAssistant a owl:Class ;
+    rdfs:label "Student assistant" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:StudentAssistantAdministration a owl:Class ;
+    rdfs:label "Student assistant administration" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:Sysadmin a owl:Class ;
+    rdfs:label "Sysadmin" ;
+    rdfs:subClassOf l3skgo:L3SAssociate .
+
+l3skgo:coAuthor a rdf:Property ;
+    rdfs:label "co author" .
+
+l3skgo:interest a rdf:Property ;
+    rdfs:label "interest" .
+
+l3skgo:startingDate a rdf:Property ;
+    rdfs:label "L3S start date" .
+
+schema:author a rdf:Property ;
+    rdfs:label "author" .
+
+schema:birthDate a rdf:Property ;
+    rdfs:label "birthDate" .
+
+schema:citation a rdf:Property ;
+    rdfs:label "citation" .
+
+schema:email a rdf:Property ;
+    rdfs:label "email" .
+
+schema:image a rdf:Property ;
+    rdfs:label "image" .
+
+schema:isPartOf a rdf:Property ;
+    rdfs:label "isPartOf" .
+
+schema:knowsLanguage a rdf:Property ;
+    rdfs:label "knowsLanguage" .
+
+schema:location a rdf:Property ;
+    rdfs:label "location" .
+
+schema:subjectOf a rdf:Property ;
+    rdfs:label "subjectOf" .
+
+schema:telephone a rdf:Property ;
+    rdfs:label "telephone" .
+
+schema:workLocation a rdf:Property ;
+    rdfs:label "workLocation" .
+
+l3skgo:L3SAssociate a owl:Class ;
+    rdfs:label "L3S Associate" .
+
+schema:City a owl:Class ;
+    rdfs:label "City" .
+
+schema:Event a owl:Class ;
+    rdfs:label "Event" .
+
+schema:House a owl:Class ;
+    rdfs:label "House" .
+
+schema:Language a owl:Class ;
+    rdfs:label "Language" .
+
+schema:Periodical a owl:Class ;
+    rdfs:label "Periodical" .
+
+schema:ScholarlyArticle a owl:Class ;
+    rdfs:label "ScholarlyArticle" .
