@@ -189,3 +189,60 @@ schema:Periodical a owl:Class ;
 
 schema:ScholarlyArticle a owl:Class ;
     rdfs:label "ScholarlyArticle" .
+
+l3skg:Adaptive_Query_Processing a l3skgo:ResearchField ;
+    rdfs:label "Adaptive Query Processing" .
+
+l3skg:Adversarial_Machine_Learning a l3skgo:ResearchField ;
+    rdfs:label "Adversarial Machine Learning" .
+
+l3skg:Adversarial_Robustness a l3skgo:ResearchField ;
+    rdfs:label "Adversarial Robustness" .
+
+l3skg:AI_For_Robotics a l3skgo:ResearchField ;
+    rdfs:label "AI For Robotics" .
+
+l3skg:Alignment a l3skgo:ResearchField ;
+    rdfs:label "Alignment" .
+
+l3skg:Anomaly_Detection a l3skgo:ResearchField ;
+    rdfs:label "Anomaly Detection" .
+
+l3skg:Applied_Machine_Learning a l3skgo:ResearchField ;
+    rdfs:label "Applied Machine Learning" .
+
+l3skg:Audio_Signal_Processing a l3skgo:ResearchField ;
+    rdfs:label "Audio Signal Processing" .
+
+l3skg:Bias_In_Ai a l3skgo:ResearchField ;
+    rdfs:label "Bias In Ai" .
+
+l3skg:Blockchain a l3skgo:ResearchField ;
+    rdfs:label "Blockchain" .
+
+l3skg:Circular_Economy a l3skgo:ResearchField ;
+    rdfs:label "Circular Economy" .
+
+l3skg:Cognitive_Robotics a l3skgo:ResearchField ;
+    rdfs:label "Cognitive Robotics" .
+
+l3skg:Complex_Networks a l3skgo:ResearchField ;
+    rdfs:label "Complex Networks" .
+
+l3skg:Computational_Science a l3skgo:ResearchField ;
+    rdfs:label "Computational Science" .
+
+l3skg:Data_Bases a l3skgo:ResearchField ;
+    rdfs:label "Data Bases" .
+
+l3skg:Data_Generation a l3skgo:ResearchField ;
+    rdfs:label "Data Generation" .
+
+l3skg:Deep_Generative_Model a l3skgo:ResearchField ;
+    rdfs:label "Deep Generative Model" .
+
+l3skg:Digital_Libraries a l3skgo:ResearchField ;
+    rdfs:label "Digital Libraries" .
+
+l3skg:Education a l3skgo:ResearchField ;
+    rdfs:label "Education" .
